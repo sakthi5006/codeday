@@ -1,4 +1,5 @@
 jupyter==1.0.0
 jupyter-core==4.0.6
 nose==1.3.7
-PbPython==0.1.9 
+PbPython==0.1.9
+Flask==0.10.1

@@ -1,6 +1,7 @@
 
 
 # Assistant Bot
+
 A bot to help you do things differently
 
 [![Stories in Ready](https://badge.waffle.io/spaamteam/airbnbchallenge.png?label=ready&title=Ready)](https://waffle.io/spaamteam/airbnbchallenge)
