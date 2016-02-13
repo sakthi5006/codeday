@@ -26,7 +26,8 @@ A bot to help you do things differently
 # Setup:
 
 1. Install Anaconda
-2. Run `pip install -r requirements.txt`
+2. Install PyCharm
+3. Run `pip install -r requirements.txt`
 
 ## Working with Git
 
