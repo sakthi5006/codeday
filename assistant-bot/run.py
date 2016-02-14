@@ -6,7 +6,7 @@ import zipfile
 import string
 import random
 import aiml
-import PbPython
+from pb_py import main as api
 
 # Start of chatbot codes
 
