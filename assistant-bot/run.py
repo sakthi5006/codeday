@@ -9,7 +9,8 @@ import aiml
 
 # Start of chatbot codes
 # dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
-dictionary = open("./dictionary.txt", "r")
+#dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
+#dictionary = open("dictionary.txt", "r")
 #   Dictionary format:
 #   "English", word, type, "#", Definition
 
@@ -113,16 +114,16 @@ def endConversation():
     return farewell[random.randint(0,3)]
     exit()
 
-def wordDefinition(b):
-    answer = "I don't know"
-    for line in dictionary:
-        defList = line.split()
-        if (b == defList[1]) and (defList[2] == "Noun"):
-            s = str(defList[4:])    #puts everything from the 4th line onward into a string
-            answer = "Its " + "".join(c for c in s if c.isalnum() or c.isspace())  #Removes symbols
-            topic = b
-            break
-    return answer
+# def wordDefinition(b):
+#     answer = "I don't know"
+#     for line in dictionary:
+#         defList = line.split()
+#         if (b == defList[1]) and (defList[2] == "Noun"):
+#             s = str(defList[4:])    #puts everything from the 4th line onward into a string
+#             answer = "Its " + "".join(c for c in s if c.isalnum() or c.isspace())  #Removes symbols
+#             topic = b
+#             break
+#     return answer
 
 def discussWeather():
     weatherData = urllib.urlopen("http://rss.wunderground.com/auto/rss_full/MD/Frederick.xml?units=english")
