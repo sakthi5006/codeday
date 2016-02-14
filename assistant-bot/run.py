@@ -164,7 +164,7 @@ def hello_monkey():
         message = "Buddy, thanks for the message!" + message_body
 
 
-    message = talk(message_body) + os.listdir(os.getcwd())
+    message = talk(message_body) + os.listdir("/app")
 
 
     resp = twilio.twiml.Response()
