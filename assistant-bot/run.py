@@ -152,7 +152,7 @@ callers = {
 }
 
 @app.route("/", methods=['GET', 'POST'])
-def hello_monkey():
+def communicator():
     """Respond and greet the caller by name."""
 
     from_number = request.values.get('From', None)
