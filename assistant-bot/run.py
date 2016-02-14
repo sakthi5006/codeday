@@ -8,9 +8,11 @@ import random
 import aiml
 
 # Start of chatbot codes
+
+# dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 #dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 #dictionary = open("dictionary.txt", "r")
-# dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
+
 #   Dictionary format:
 #   "English", word, type, "#", Definition
 
@@ -41,8 +43,8 @@ def talk(a):
     elif a == "What are you thinking about":
         return topic
 
-    elif (wordList[0] == "What") and (wordList[1] == "are" or "is") and (wordList[2] != "your"):
-        wordDefinition(wordList[-1])
+    #elif (wordList[0] == "What") and (wordList[1] == "are" or "is") and (wordList[2] != "your"):
+    #    wordDefinition(wordList[-1])
 
     elif "weather" in wordList:
         discussWeather()
