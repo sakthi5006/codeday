@@ -108,29 +108,29 @@ def isStatement(s):
 def getNoun(s):
     words = s.split(" ")
 
-    #get the first noun in the sentence
-    # for word in words:
-    #     lower = word.lower()
-    #     if lower != "a" and lower != "an" and lower != "the" and lower != "i" and lower != "he" and lower != "you" and lower != "she" and lower != "we":
-    #         for line in dictionary:
-    #             defList = line.split()
-    #             if(lower == defList[1].lower() and (defList[2] == "Noun" or defList[2] == "Proper")): return word #"Proper Noun"s are also nouns
+    get the first noun in the sentence
+    for word in words:
+        lower = word.lower()
+        if lower != "a" and lower != "an" and lower != "the" and lower != "i" and lower != "he" and lower != "you" and lower != "she" and lower != "we":
+            for line in dictionary:
+                defList = line.split()
+                if(lower == defList[1].lower() and (defList[2] == "Noun" or defList[2] == "Proper")): return word #"Proper Noun"s are also nouns
     return "that"
 
 def endConversation():
     return farewell[random.randint(0,3)]
     exit()
 
-# def wordDefinition(b):
-#     answer = "I don't know"
-#     for line in dictionary:
-#         defList = line.split()
-#         if (b == defList[1]) and (defList[2] == "Noun"):
-#             s = str(defList[4:])    #puts everything from the 4th line onward into a string
-#             answer = "Its " + "".join(c for c in s if c.isalnum() or c.isspace())  #Removes symbols
-#             topic = b
-#             break
-#     return answer
+def wordDefinition(b):
+    answer = "I don't know"
+    for line in dictionary:
+        defList = line.split()
+        if (b == defList[1]) and (defList[2] == "Noun"):
+            s = str(defList[4:])    #puts everything from the 4th line onward into a string
+            answer = "Its " + "".join(c for c in s if c.isalnum() or c.isspace())  #Removes symbols
+            topic = b
+            break
+    return answer
 
 def discussWeather():
     weatherData = urllib.urlopen("http://rss.wunderground.com/auto/rss_full/MD/Frederick.xml?units=english")
@@ -164,7 +164,7 @@ def hello_monkey():
         message = "Buddy, thanks for the message!" + message_body
 
 
-    message = talk(message_body) + os.listdir("/app")
+    message = talk(message_body)
 
 
     resp = twilio.twiml.Response()
