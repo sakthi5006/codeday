@@ -2,10 +2,10 @@ from flask import Flask, request, redirect
 import twilio.twiml
 import os
 import urllib
-import zipfile
 import string
 import random
 import aiml
+
 
 # Start of chatbot codes
 
@@ -21,11 +21,15 @@ import aiml
 #   Dictionary format:
 #   "English", word, type, "#", Definition
 
+from pb_py import main as api
+
+
 greeting = ["Hey", "Hi", "Hello", "Whats up", "Yo"]
 farewell = ["Goodbye", "Bye", "See you later", "Farewell"]
 thanks = ["Thanks", "Thank you", "Thanks a lot"]
 questions = ["What do you think about {0}?", "I don't really like {0}. Do you?", "I like {0}, don't you?", "Why do you say {0}?"]
 
+<<<<<<< HEAD
 topic = "Nothing"
 
 k = aiml.Kernel()
@@ -224,6 +228,80 @@ k.setBotPredicate("kare","")
 k.setBotPredicate("birthplace","")
 
 
+ttopic = "Nothing"
+
+# k = aiml.Kernel()
+# k.learn("aiml2.xml")
+#
+#
+# k.setBotPredicate("matched","")
+# k.setBotPredicate("person","")
+# k.setBotPredicate("it","")
+# k.setBotPredicate("topic","")
+# k.setBotPredicate("species","")
+# k.setBotPredicate("user","")
+# k.setBotPredicate("master","")
+# k.setBotPredicate("he","")
+# k.setBotPredicate("X","")
+# k.setBotPredicate("name","Alok")
+# k.setBotPredicate("genus","")
+# k.setBotPredicate("personality","")
+# k.setBotPredicate("botmaster","")
+# k.setBotPredicate("she","")
+# k.setBotPredicate("order","")
+# k.setBotPredicate("gender","")
+# k.setBotPredicate("has","")
+# k.setBotPredicate("her","")
+# k.setBotPredicate("fullname","")
+# k.setBotPredicate("dog","")
+# k.setBotPredicate("boyfriend","")
+# k.setBotPredicate("cat","")
+# k.setBotPredicate("they","")
+# k.setBotPredicate("friend","")
+# k.setBotPredicate("father","")
+# k.setBotPredicate("girlfriend","")
+# k.setBotPredicate("brother","")
+# k.setBotPredicate("sister","")
+# k.setBotPredicate("husband","")
+# k.setBotPredicate("wife","")
+# k.setBotPredicate("mother","")
+# k.setBotPredicate("location","")
+# k.setBotPredicate("favcolor","")
+# k.setBotPredicate("birthday","")
+# k.setBotPredicate("favoritecolor","")
+# k.setBotPredicate("is","")
+# k.setBotPredicate("memory","")
+# k.setBotPredicate("favoritemovie","")
+# k.setBotPredicate("sign","")
+# k.setBotPredicate("party","")
+# k.setBotPredicate("file","")
+# k.setBotPredicate("want","")
+# k.setBotPredicate("does","")
+# k.setBotPredicate("looklike","")
+# k.setBotPredicate("like","")
+# k.setBotPredicate("job","")
+# k.setBotPredicate("we","")
+# k.setBotPredicate("size","")
+# k.setBotPredicate("favoritemove","")
+# k.setBotPredicate("religion","")
+# k.setBotPredicate("meaning","")
+# k.setBotPredicate("definition","")
+# k.setBotPredicate("hehas","")
+# k.setBotPredicate("him","")
+# k.setBotPredicate("helikes","")
+# k.setBotPredicate("president","")
+# k.setBotPredicate("etype","")
+# k.setBotPredicate("nickname","")
+# k.setBotPredicate("password","")
+# k.setBotPredicate("email","")
+# k.setBotPredicate("middlename","")
+# k.setBotPredicate("phone","")
+# k.setBotPredicate("lastname","")
+# k.setBotPredicate("kare","")
+# k.setBotPredicate("birthplace","")
+#
+
+
 def talk(a):
 
     a = a.capitalize()
@@ -302,13 +380,13 @@ def getNoun(s):
     words = s.split(" ")
 
     #get the first noun in the sentence
-    for word in words:
-        lower = word.lower()
-        if lower != "a" and lower != "an" and lower != "the" and lower != "i" and lower != "he" and lower != "you" and lower != "she" and lower != "we":
-            for line in dictionary:
-                defList = line.split()
-                if(lower == defList[1].lower() and (defList[2] == "Noun" or defList[2] == "Proper")): return word #"Proper Noun"s are also nouns
-    return "that"
+    # for word in words:
+    #     lower = word.lower()
+    #     if lower != "a" and lower != "an" and lower != "the" and lower != "i" and lower != "he" and lower != "you" and lower != "she" and lower != "we":
+    #         for line in dictionary:
+    #             defList = line.split()
+    #             if(lower == defList[1].lower() and (defList[2] == "Noun" or defList[2] == "Proper")): return word #"Proper Noun"s are also nouns
+    # return "that"
 
 def endConversation():
     return farewell[random.randint(0,3)]
@@ -316,17 +394,17 @@ def endConversation():
 
 def wordDefinition(b):
     answer = "I don't know"
-    for line in dictionary:
-        defList = line.split()
-        if (b == defList[1]) and (defList[2] == "Noun"):
-            s = str(defList[4:])    #puts everything from the 4th line onward into a string
-            answer = "Its " + "".join(c for c in s if c.isalnum() or c.isspace())  #Removes symbols
-            topic = b
-            break
+    # for line in dictionary:
+    #     defList = line.split()
+    #     if (b == defList[1]) and (defList[2] == "Noun"):
+    #         s = str(defList[4:])    #puts everything from the 4th line onward into a string
+    #         answer = "Its " + "".join(c for c in s if c.isalnum() or c.isspace())  #Removes symbols
+    #         topic = b
+    #         break
     return answer
 
 def discussWeather():
-    weatherData = urllib.urlopen("http://rss.wunderground.com/auto/rss_full/MD/Frederick.xml?units=english")
+    weatherData = urllib.urlopen("http://rss.wunderground.com/auto/rss_full/TX/Houston.xml?units=english")
     for line in weatherData:
         if "Current Conditions" in line:
             conditions = line.split(":")
@@ -337,31 +415,25 @@ def discussWeather():
 
 app = Flask(__name__)
 
-# Try adding your own number to this list!
-callers = {
-    "+19799857131": "Audi",
-    "+19799857132": "Atif",
-    "+19799857169": "Alok",
-}
+@app.route('/hello')
+def hello():
+    return 'Hello World!'
 
 @app.route("/", methods=['GET', 'POST'])
-def hello_monkey():
+def communicator():
     """Respond and greet the caller by name."""
 
+    # Retrieved information from SMS Twilio
     from_number = request.values.get('From', None)
     message_body = request.values.get('Body', "")
+    date_created = request.values.get('DateCreated', "")
+    account_sid = request.values.get('AccountSid', "")
+    date_created = request.values.get('DateCreated', "")
 
-    if from_number in callers:
-        message = callers[from_number] + ", thanks for the message:" + message_body + "!"
-    else:
-        message = "Buddy, thanks for the message!" + message_body
-
-
-    message = talk(message_body)
-
+    bot_response = talk(message_body)
 
     resp = twilio.twiml.Response()
-    resp.message(message)
+    resp.message(bot_response)
 
     return str(resp)
 

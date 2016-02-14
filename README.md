@@ -5,6 +5,7 @@
 A bot to help you do things differently
 
 [![Build Status](https://travis-ci.org/spaamteam/codeday.svg?branch=master)](https://travis-ci.org/spaamteam/codeday)
+[![Code Climate](https://codeclimate.com/github/spaamteam/codeday/badges/gpa.svg)](https://codeclimate.com/github/spaamteam/codeday)
 
 ## Installation:
 
