@@ -11,6 +11,7 @@ import aiml
 
 # dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 # dictionary = zipfile.ZipFile("../assistant-bot/dictionary.zip", "r").open("./assistant-bot/dictionary.txt", "r")
+#dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 
 dictionary = open("./assistant-bot/dictionary.txt")
 
