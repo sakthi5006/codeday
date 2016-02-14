@@ -10,6 +10,7 @@ import aiml
 # Start of chatbot codes
 #dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 #dictionary = open("dictionary.txt", "r")
+# dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 #   Dictionary format:
 #   "English", word, type, "#", Definition
 
