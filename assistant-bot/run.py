@@ -8,7 +8,8 @@ import random
 import aiml
 
 # Start of chatbot codes
-dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
+#dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
+dictionary = open("dictionary.txt", "r")
 #   Dictionary format:
 #   "English", word, type, "#", Definition
 
@@ -28,16 +29,16 @@ def talk(a):
     wordList = a.split(" ")
 
     if a in greeting:
-        print greeting[random.randint(0,4)]
+        return greeting[random.randint(0,4)]
 
     elif a in farewell:
         endConversation()
 
     elif a in thanks:
-        print "No problem"
+        return "No problem"
 
     elif a == "What are you thinking about":
-        print topic
+        return topic
 
     elif (wordList[0] == "What") and (wordList[1] == "are" or "is") and (wordList[2] != "your"):
         wordDefinition(wordList[-1])
@@ -46,7 +47,7 @@ def talk(a):
         discussWeather()
 
     elif "i think" in a.lower():
-        print "Why do you think that?"
+        return "Why do you think that?"
 
     #elif a.lower().split(" ")[0] == "yes":
     #    print "That's good"
@@ -59,16 +60,16 @@ def talk(a):
 
     elif a.endswith("?"):
         if a.lower().startswith("why"):
-            print "I don't know, how{0}".format(getWhyQuestionChunk(a.lower()))
+            return "I don't know, how{0}".format(getWhyQuestionChunk(a.lower()))
         elif "are you a" in a.lower():
-            print ["yes", "no"][random.randint(0, 1)]
+            return ["yes", "no"][random.randint(0, 1)]
         else:
-            print "I don't know, {0}".format(a.lower())
+            return "I don't know, {0}".format(a.lower())
 
     else:
         b = a.upper()
         k.respond(b)
-        print k.respond(a)
+        return k.respond(a)
 
 
         #print ["yep", "really?"][random.randint(0, 1)]
@@ -86,7 +87,7 @@ def getWhyQuestionChunk(s):
 
     if chunk.startswith("are"):
         chunk = chunk.replace("are", "", 1)
-        print "hit"
+        return "hit"
     return chunk
 
 def isStatement(s):
@@ -109,7 +110,7 @@ def getNoun(s):
     return "that"
 
 def endConversation():
-    print farewell[random.randint(0,3)]
+    return farewell[random.randint(0,3)]
     exit()
 
 def wordDefinition(b):
@@ -121,7 +122,7 @@ def wordDefinition(b):
             answer = "Its " + "".join(c for c in s if c.isalnum() or c.isspace())  #Removes symbols
             topic = b
             break
-    print answer
+    return answer
 
 def discussWeather():
     weatherData = urllib.urlopen("http://rss.wunderground.com/auto/rss_full/MD/Frederick.xml?units=english")
@@ -129,7 +130,7 @@ def discussWeather():
         if "Current Conditions" in line:
             conditions = line.split(":")
             conditions = conditions[1].split("-")
-            print "Its pretty nice. Its " + conditions[0]
+            return "Its pretty nice. Its " + conditions[0]
 
 # end of chatbot code
 
@@ -155,8 +156,8 @@ def hello_monkey():
         message = "Buddy, thanks for the message!" + message_body
 
 
-    message = ""
-    talk(message_body)
+    message = talk(message_body)
+
 
     resp = twilio.twiml.Response()
     resp.message(message)
