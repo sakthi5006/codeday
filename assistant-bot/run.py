@@ -8,7 +8,7 @@ import random
 import aiml
 
 # Start of chatbot codes
-dictionary = zipfile.ZipFile("dictionary.zip", "r").open("dictionary.txt", "r")
+dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 #   Dictionary format:
 #   "English", word, type, "#", Definition
 
@@ -20,7 +20,7 @@ questions = ["What do you think about {0}?", "I don't really like {0}. Do you?",
 topic = "Nothing"
 
 k = aiml.Kernel()
-k.learn("aiml2.xml")
+k.learn("./aiml2.xml")
 
 def talk(a):
 
