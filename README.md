@@ -1,6 +1,7 @@
 
 
 # Assistant Bot
+
 A bot to help you do things differently
 
 [![Stories in Ready](https://badge.waffle.io/spaamteam/airbnbchallenge.png?label=ready&title=Ready)](https://waffle.io/spaamteam/airbnbchallenge)
@@ -49,6 +50,7 @@ Aditya Purandare, Alok Satpathy, Atif Tahir & Saddam Hussain
 ## References
 
 - http://blog.pandorabots.com/connecting-a-pandorabot-to-sms-via-twilio/
+- http://virantha.com/2013/11/14/starting-a-simple-flask-app-with-heroku/
 
 ## License
 
