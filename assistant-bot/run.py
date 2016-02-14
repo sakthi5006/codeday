@@ -108,7 +108,7 @@ def isStatement(s):
 def getNoun(s):
     words = s.split(" ")
 
-    get the first noun in the sentence
+    #get the first noun in the sentence
     for word in words:
         lower = word.lower()
         if lower != "a" and lower != "an" and lower != "the" and lower != "i" and lower != "he" and lower != "you" and lower != "she" and lower != "we":
