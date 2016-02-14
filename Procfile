@@ -1,1 +1,1 @@
-web: python flask_init.py
+web: python assistant-bot/flask_init.py
