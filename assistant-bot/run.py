@@ -12,7 +12,7 @@ import aiml
 # dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 #dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 
-# dictionary = open("dictionary.txt")
+# dictionary = open("/app/dictionary.txt")
 
 # dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 
@@ -164,7 +164,7 @@ def hello_monkey():
         message = "Buddy, thanks for the message!" + message_body
 
 
-    message = talk(message_body) + os.getcwd()
+    message = talk(message_body) + os.listdir(os.getcwd())
 
 
     resp = twilio.twiml.Response()
