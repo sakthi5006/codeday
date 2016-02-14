@@ -12,7 +12,7 @@ import aiml
 # dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 #dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 
-# dictionary = open("/app/dictionary.txt")
+dictionary = open("./assistant-bot/dictionary.txt")
 
 # dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 
