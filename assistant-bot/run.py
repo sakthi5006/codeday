@@ -14,7 +14,6 @@ import aiml
 
 dictionary = open("./assistant-bot/dictionary.txt")
 
-
 #   Dictionary format:
 #   "English", word, type, "#", Definition
 
