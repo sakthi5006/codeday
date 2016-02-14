@@ -25,8 +25,8 @@ questions = ["What do you think about {0}?", "I don't really like {0}. Do you?",
 
 ttopic = "Nothing"
 
-k = aiml.Kernel()
-k.learn("aiml2.xml")
+# k = aiml.Kernel()
+# k.learn("aiml2.xml")
 
 
 k.setBotPredicate("matched","")
@@ -235,10 +235,10 @@ def communicator():
 
 
     message = talk(message_body)
-
+    bot_response = api.talk('2a2a1569fe48655c89487a7e8c6cb214', '1409612442334', 'aiaas.pandorabots.com', 'alok', message_body)["response"]
 
     resp = twilio.twiml.Response()
-    resp.message(message)
+    resp.message(bot_response)
 
     return str(resp)
 
