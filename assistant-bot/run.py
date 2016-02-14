@@ -11,7 +11,8 @@ import aiml
 
 # dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 #dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
-#dictionary = open("dictionary.txt", "r")
+
+dictionary = open("dictionary.txt")
 
 #   Dictionary format:
 #   "English", word, type, "#", Definition
@@ -43,8 +44,8 @@ def talk(a):
     elif a == "What are you thinking about":
         return topic
 
-    #elif (wordList[0] == "What") and (wordList[1] == "are" or "is") and (wordList[2] != "your"):
-    #    wordDefinition(wordList[-1])
+    elif (wordList[0] == "What") and (wordList[1] == "are" or "is") and (wordList[2] != "your"):
+        wordDefinition(wordList[-1])
 
     elif "weather" in wordList:
         discussWeather()
@@ -52,14 +53,14 @@ def talk(a):
     elif "i think" in a.lower():
         return "Why do you think that?"
 
-    #elif a.lower().split(" ")[0] == "yes":
-    #    print "That's good"
+    elif a.lower().split(" ")[0] == "yes":
+        return "That's good"
 
-    #elif a.lower().split(" ")[0] == "no":
-    #    print "Really?"
+    elif a.lower().split(" ")[0] == "no":
+        return "Really?"
 
-    #elif isStatement(a):
-    #    print questions[random.randint(0, 3)].format(getNoun(a))
+    elif isStatement(a):
+        return questions[random.randint(0, 3)].format(getNoun(a))
 
     elif a.endswith("?"):
         if a.lower().startswith("why"):
@@ -159,7 +160,7 @@ def hello_monkey():
         message = "Buddy, thanks for the message!" + message_body
 
 
-    message = talk(message_body)
+    message = talk(message_body) + os.getcwd()
 
 
     resp = twilio.twiml.Response()
