@@ -6,7 +6,6 @@ import string
 import random
 from pb_py import main as api
 
-
 app = Flask(__name__)
 
 # Try adding your own number to this list!
@@ -34,8 +33,8 @@ def communicator():
         message = "Buddy, thanks for the message!" + message_body
 
 
-    message = talk(message_body)
-    bot_response = api.talk('2a2a1569fe48655c89487a7e8c6cb214', '1409612442334', 'http://aiaas.pandorabots.com', 'alok', message_body)["response"]
+    bot_response = talk(message_body)
+    # bot_response = api.talk('2a2a1569fe48655c89487a7e8c6cb214', '1409612442334', 'http://aiaas.pandorabots.com', 'alok', message_body)["response"]
 
     resp = twilio.twiml.Response()
     resp.message(bot_response)
