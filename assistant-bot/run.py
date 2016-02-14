@@ -4,12 +4,8 @@ import os
 import urllib
 import string
 import random
+import aiml
 from pb_py import main as api
-
-dictionary = open("./assistant-bot/dictionary.txt")
-
-#   Dictionary format:
-#   "English", word, type, "#", Definition
 
 greeting = ["Hey", "Hi", "Hello", "Whats up", "Yo"]
 farewell = ["Goodbye", "Bye", "See you later", "Farewell"]
@@ -202,13 +198,6 @@ def discussWeather():
 
 app = Flask(__name__)
 
-# Try adding your own number to this list!
-callers = {
-    "+19799857131": "Audi",
-    "+19799857132": "Atif",
-    "+19799857169": "Alok",
-}
-
 @app.route('/hello')
 def hello():
     return 'Hello World!'
@@ -224,26 +213,12 @@ def communicator():
     account_sid = request.values.get('AccountSid', "")
     date_created = request.values.get('DateCreated', "")
 
+    bot_response = talk(message_body)
 
-    if from_number in callers:
-        message = callers[from_number] + ", thanks for the message:" + message_body + "!"
-    else:
-        message = "Buddy, thanks for the message!" + message_body
+    resp = twilio.twiml.Response()
+    resp.message(bot_response)
 
-
-    #bot_response = talk(message_body)
-    #bot_response = api.talk('2a2a1569fe48655c89487a7e8c6cb214', '1409612442334', 'http://aiaas.pandorabots.com', 'alok', message_body)["response"]
-    try:
-        url = 'https://aiaas.pandorabots.com/talk/1409612442334/alok?user_key=2a2a1569fe48655c89487a7e8c6cb214&input=' + message_body
-    #print url
-        bot_response = requests.post(url)
-
-        resp = twilio.twiml.Response()
-        resp.message(bot_response)
-
-        return str(resp)
-    except IOError:
-        print "Error"
+    return str(resp)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
