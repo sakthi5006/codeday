@@ -12,7 +12,7 @@ import aiml
 # dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 #dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 
-dictionary = open("dictionary.txt")
+# dictionary = open("dictionary.txt")
 
 # dictionary = zipfile.ZipFile("./dictionary.zip", "r").open("./dictionary.txt", "r")
 
@@ -109,12 +109,12 @@ def getNoun(s):
     words = s.split(" ")
 
     #get the first noun in the sentence
-    for word in words:
-        lower = word.lower()
-        if lower != "a" and lower != "an" and lower != "the" and lower != "i" and lower != "he" and lower != "you" and lower != "she" and lower != "we":
-            for line in dictionary:
-                defList = line.split()
-                if(lower == defList[1].lower() and (defList[2] == "Noun" or defList[2] == "Proper")): return word #"Proper Noun"s are also nouns
+    # for word in words:
+    #     lower = word.lower()
+    #     if lower != "a" and lower != "an" and lower != "the" and lower != "i" and lower != "he" and lower != "you" and lower != "she" and lower != "we":
+    #         for line in dictionary:
+    #             defList = line.split()
+    #             if(lower == defList[1].lower() and (defList[2] == "Noun" or defList[2] == "Proper")): return word #"Proper Noun"s are also nouns
     return "that"
 
 def endConversation():
