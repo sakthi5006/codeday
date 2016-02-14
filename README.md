@@ -4,10 +4,7 @@
 
 A bot to help you do things differently
 
-[![Stories in Ready](https://badge.waffle.io/spaamteam/airbnbchallenge.png?label=ready&title=Ready)](https://waffle.io/spaamteam/airbnbchallenge)
-[![Code Climate](https://codeclimate.com/github/spaamteam/airbnbchallenge/badges/gpa.svg)](https://codeclimate.com/github/spaamteam/airbnbchallenge)
-[![Build Status](https://travis-ci.org/spaamteam/airbnbchallenge.svg?branch=master)](https://travis-ci.org/spaamteam/airbnbchallenge)
-[![Coverage Status](https://coveralls.io/repos/spaamteam/airbnbchallenge/badge.svg?branch=master&service=github)](https://coveralls.io/github/spaamteam/airbnbchallenge?branch=master)
+[![Build Status](https://travis-ci.org/spaamteam/codeday.svg?branch=master)](https://travis-ci.org/spaamteam/codeday)
 
 ## Installation:
 
