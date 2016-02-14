@@ -233,14 +233,17 @@ def communicator():
 
     #bot_response = talk(message_body)
     #bot_response = api.talk('2a2a1569fe48655c89487a7e8c6cb214', '1409612442334', 'http://aiaas.pandorabots.com', 'alok', message_body)["response"]
-    url = 'https://aiaas.pandorabots.com/talk/1409612442334/alok?user_key=2a2a1569fe48655c89487a7e8c6cb214&input=' + message_body
+    try:
+        url = 'https://aiaas.pandorabots.com/talk/1409612442334/alok?user_key=2a2a1569fe48655c89487a7e8c6cb214&input=' + message_body
     #print url
-    bot_response = requests.post(url)
+        bot_response = requests.post(url)
 
-    resp = twilio.twiml.Response()
-    resp.message(bot_response)
+        resp = twilio.twiml.Response()
+        resp.message(bot_response)
 
-    return str(resp)
+        return str(resp)
+    except IOError:
+        print "Error"
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
