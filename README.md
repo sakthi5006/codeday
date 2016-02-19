@@ -28,14 +28,15 @@ A bot to help you do things differently
 2. Install PyCharm
 3. Run `pip install -r requirements.txt`
 
-## Working with Git
+## Inspiration
 
-*Required every time one wants to publish an update*
-- `git status` : Informs you about which files are modified/added
-- `git add filename.py` : Adds the file to version tracking
-- `git commit -m "Informative Message"` : Message to inform others of the update [usually less than 50 characters]
-- `git pull` : Pulls new changes from the central repository @ GitHub
-- `git push` : Publishes changes to central repo for others to observe and work on
+## What it does
+
+## How we built it
+
+## Challenges we ran into
+
+## Accomplishments that we're proud of
 
 ## Testing
 
