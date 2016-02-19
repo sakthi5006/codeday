@@ -53,7 +53,7 @@ Aditya Purandare, Alok Satpathy, Atif Tahir & Saddam Hussain
 
 ## License
 
-    Copyright 2015 SPAAM Team
+    Copyright 2016 SPAAM Team
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
